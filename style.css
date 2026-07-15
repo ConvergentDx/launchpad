@@ -16,13 +16,26 @@ body {
     min-height: 100vh;
     font-family: var(--font);
     background: radial-gradient(circle at top, var(--bgColor4) 0%, var(--bgColor2) 100%);
-    /* background-image: url('https://bit.ly/3nFVqJh'); */
-    opacity: 0;
-    animation: .5s ease-out var(--delay) 1 transitionAnimation; /* duration/timing-function/delay/iterations/name */
-    animation-fill-mode: forwards;
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
+}
+
+body.department-page {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 24px 16px 24px;
+    box-sizing: border-box;
+}
+
+.department-page .page-shell {
+    width: min(100%, 980px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
 }
 
 #profilePicture, #profilePicture img {
@@ -30,21 +43,172 @@ body {
     width: 180px;
     height: 100px;
     display: block;
-    margin: 40px auto 20px;
+    margin: 0 auto 18px;
     border-radius: 0%;
     -webkit-tap-highlight-color: transparent;
-	
-}	
-	
-	
+}
+
 #logoPicture, #logoPicture img {
     position: relative;
     width: 55px;
     height: 30px;
     display: block;
-    margin: 30px auto 15px;
+    margin: 18px auto 8px;
     border-radius: 0%;
     -webkit-tap-highlight-color: transparent;
+}
+
+.department-page .hero {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 24px 28px;
+    margin-bottom: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.16);
+}
+
+.department-page .hero-content {
+    flex: 1;
+}
+
+.department-page .eyebrow {
+    margin: 0 0 6px;
+    color: #dce9ff;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.department-page h1,
+.department-page h2 {
+    margin: 0;
+    color: var(--accentColor);
+}
+
+.department-page .hero h1 {
+    font-size: clamp(1.5rem, 2.3vw, 2.2rem);
+    margin-bottom: 8px;
+}
+
+.department-page .hero-text,
+.department-page .card-copy {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+}
+
+.department-page .hero-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 11px 16px;
+    border-radius: 999px;
+    color: var(--bgColor2);
+    background: var(--accentColor);
+    text-decoration: none;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.department-page .cards-grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.department-page .card,
+.department-page .request-card {
+    padding: 22px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.14);
+}
+
+.department-page .card-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.department-page .card-title i {
+    color: #dce9ff;
+    font-size: 1rem;
+}
+
+.department-page .card h2,
+.department-page .request-card h2 {
+    font-size: 1.15rem;
+}
+
+.department-page .link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin: 10px 0 0;
+    padding: 12px 14px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.14);
+    color: var(--accentColor);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+@media (hover: hover) {
+    .department-page .link:hover,
+    .department-page .hero-link:hover {
+        transform: translateY(-2px);
+        background-color: rgba(255, 255, 255, 0.24);
+    }
+}
+
+.department-page .link:active,
+.department-page .hero-link:active {
+    transform: translateY(0);
+    background-color: rgba(255, 255, 255, 0.24);
+}
+
+.department-page .request-card {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 10px;
+}
+
+.department-page .request-link {
+    min-width: 250px;
+    justify-content: space-between;
+}
+
+.arrow {
+    display: inline-block;
+    margin-left: 0.35rem;
+    font-size: 1.05rem;
+    line-height: 1;
+    color: inherit;
+    transition: transform 0.2s ease;
+}
+
+.arrow:hover {
+    transform: translateX(3px);
 }
 
 #userName {
@@ -82,34 +246,19 @@ body {
     flex-direction: column;
 }
 
-.link {
-    position: relative;
-    background-color: transparent;
+.header {
+    font-size: 1.2rem;
+    font-weight: bold;
     color: var(--accentColor);
-    border: solid var(--accentColor) 2px;
-    border-radius: 10px;
-    font-size: 1rem;
-    text-align: center;
-    display: block;
-    margin-left: 10px;
-    margin-right: 10px;
     margin-bottom: 10px;
-    padding: 10px; /* 17px */
-    text-decoration: none;
-    /* transition: all .25s cubic-bezier(.08, .59, .29, .99); */
-    -webkit-tap-highlight-color: transparent;
+    text-align: center;
 }
 
-@media (hover: hover) {
-    .link:hover {
-        background-color: #d9dadb;
-        color: var(--bgColor);
-    }
-}
-
-.link:active {
-    background-color: #d9dadb;
-    color: var(--bgColor);
+.text {
+    font-size: 1rem;
+    color: var(--accentColor);
+    margin-bottom: 10px;
+    text-align: center;
 }
 
 #hashtag {
@@ -133,12 +282,33 @@ body {
     -webkit-text-fill-color: rgba(255, 255, 255, 0);
 }
 
+@media (max-width: 760px) {
+    body.department-page {
+        padding: 20px 12px 32px;
+    }
+
+    .department-page .hero,
+    .department-page .request-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .department-page .cards-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .department-page .request-link {
+        width: 100%;
+        min-width: 0;
+    }
+}
 
 #footers {
     position: relative;
-    padding-bottom: 10px;
+    margin-top: 0;
+    padding: 12px 0 4px;
     color: var(--accentColor);
-    font-size: 0.8rem;
+    font-size: 0.82rem;
     display: block;
     font-family: var(--font);
     width: 100%;
