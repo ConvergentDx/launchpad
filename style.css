@@ -66,6 +66,22 @@ body {
     margin: 27px auto;
 }
 
+.links-grid {
+    max-width: 760px;
+    width: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 27px auto;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+.links-column {
+    display: flex;
+    flex-direction: column;
+}
+
 .link {
     position: relative;
     background-color: transparent;
